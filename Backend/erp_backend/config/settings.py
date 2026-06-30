@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 
-import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -91,21 +91,6 @@ DATABASES = {
         },
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': os.environ.get('MYSQLDATABASE', 'erp_db'),
-#         'USER': os.environ.get('MYSQLUSER', 'erp_user'),
-#         'PASSWORD': os.environ.get('MYSQLPASSWORD', ''),
-#         # Fallback to 127.0.0.1 prevents the local socket error during local dev
-#         'HOST': os.environ.get('MYSQLHOST', '127.0.0.1'),
-#         'PORT': os.environ.get('MYSQLPORT', '3306'),
-#         'OPTIONS': {
-#             'charset': 'utf8mb4',
-#         },
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
