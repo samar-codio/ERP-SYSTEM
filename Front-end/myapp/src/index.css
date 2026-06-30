@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* Global styles (non-tailwind) */
+* { box-sizing: border-box; }
+::selection { background: rgba(43, 217, 194, 0.3); }
+
+.raes-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.raes-scroll::-webkit-scrollbar-track { background: transparent; }
+.raes-scroll::-webkit-scrollbar-thumb { background: #22304E; border-radius: 8px; }
+
+.nav-item {
+  position: relative;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-item:hover { background: #16213A; }
+.nav-item:focus-visible { outline: 2px solid #2BD9C2; outline-offset: 2px; }
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: #2BD9C2;
+}
+
+.quick-btn:focus-visible,
+.icon-btn:focus-visible {
+  outline: 2px solid #2BD9C2;
+  outline-offset: 2px;
+}
+
+.row-hover:hover { background: #16213A; }
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.gauge-wave { animation: wave 3.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+

@@ -1,0 +1,8 @@
+
+django
+mysqlclient
+gunicorn
+dj-database-url
+djangorestframework
+django-cors-headers
+pymysql
