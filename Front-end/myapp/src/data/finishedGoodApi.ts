@@ -1,6 +1,6 @@
 import type { FinishedGood } from "../models/FinishedGood";
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL}/api`;
 
 export async function getFinishedGoods(): Promise<FinishedGood[]> {
   const res = await fetch(`${API_BASE}/finishedgoods/`);

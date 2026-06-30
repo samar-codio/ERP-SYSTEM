@@ -1,6 +1,6 @@
 import type { Brand } from "../models/Brand";
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL}/api`;
 
 export async function getBrands(): Promise<Brand[]> {
   const res = await fetch(`${API_BASE}/brands/`);

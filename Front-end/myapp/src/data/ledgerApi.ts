@@ -2,7 +2,7 @@ import type { LedgerEntry } from "../models/Ledger";
 
 export async function getLedgerEntries(): Promise<LedgerEntry[]> {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/ledger/");
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ledger/`);
     if (!res.ok) throw new Error("Failed to fetch ledger entries");
     const data = await res.json();
     console.log("Raw ledger data from API:", data);

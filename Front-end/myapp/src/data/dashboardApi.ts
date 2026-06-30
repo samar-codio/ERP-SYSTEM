@@ -12,7 +12,7 @@ export async function getDashboardSummary(): Promise<{
   finishedGoodsAlerts: Array<{ name: string; stock: number; unit: string; reorderLevel: number }>;
 }> {
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/dashboard/summary");
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/dashboard/summary`);
     if (!response.ok) throw new Error("Failed to fetch dashboard summaries");
     return await response.json();
   } catch (error) {

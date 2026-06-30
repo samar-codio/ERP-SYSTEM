@@ -1,6 +1,6 @@
 import type { Employee, SalaryTransaction } from "../models/Employee";
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL}/api`;
 
 export async function getEmployees(): Promise<Employee[]> {
   const res = await fetch(`${API_BASE}/employees/`);

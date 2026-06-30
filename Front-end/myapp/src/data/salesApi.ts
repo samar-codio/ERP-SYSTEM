@@ -1,6 +1,6 @@
 import type { Sale } from "../models/Sale";
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL}/api`;
 
 export async function getSales(): Promise<Sale[]> {
   const res = await fetch(`${API_BASE}/sales/`);
@@ -84,7 +84,7 @@ export async function deleteSale(id: string): Promise<void> {
 export async function getProducts(): Promise<any[]> {
   try {
     // Hits your active Django endpoint directly using native fetch
-    const response = await fetch("http://127.0.0.1:8000/api/finishedgoods/");
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/finishedgoods/`);
     
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
