@@ -82,9 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('DB_NAME', 'erp_db'),
-        'USER': os.environ.get('DB_USER', 'erpuser'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'ErpUser@123'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'USER': os.environ.get('DB_USER', 'erp_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'your_secure_password'),
+        'HOST': os.environ.get('DB_HOST', os.environ.get('MYSQLHOST', 'localhost')),
         'PORT': os.environ.get('DB_PORT', '3306'),
     }
 }
