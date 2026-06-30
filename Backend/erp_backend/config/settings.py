@@ -78,14 +78,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+# Use Railway's MySQL environment variables for TCP connection
+# Railway provides MYSQLHOST, MYSQLPORT, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME', 'erp_db'),
-        'USER': os.environ.get('DB_USER', 'erp_user'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'your_secure_password'),
-        'HOST': os.environ.get('DB_HOST', os.environ.get('MYSQLHOST', 'localhost')),
-        'PORT': os.environ.get('DB_PORT', '3306'),
+        'NAME': os.environ.get('MYSQLDATABASE', 'erp_db'),
+        'USER': os.environ.get('MYSQLUSER', 'erp_user'),
+        'PASSWORD': os.environ.get('MYSQLPASSWORD', ''),
+        'HOST': os.environ.get('MYSQLHOST', ''),
+        'PORT': os.environ.get('MYSQLPORT', '3306'),
     }
 }
 

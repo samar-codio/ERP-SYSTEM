@@ -1,39 +1,15 @@
 
 services:
-  # 1. MySQL Database Service
-  db:
-    image: mysql:8.0
-    container_name: erp_mysql_db
-    restart: always
-    environment:
-      MYSQL_DATABASE: erp_db
-      MYSQL_USER: erp_user
-      MYSQL_PASSWORD: your_secure_password
-      MYSQL_ROOT_PASSWORD: your_root_password
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-  # 2. Django Backend Service
+  # 1. Django Backend Service
   backend:
     build: ./Backend/erp_backend
     container_name: erp_django_backend
     restart: always
     command: gunicorn --bind 0.0.0.0:8000 config.wsgi:application
-    volumes:
-      - ./Backend/erp_backend:/app
     ports:
       - "8000:8000"
-    environment:
-      - DB_HOST=erp_mysql_db
-      - DB_NAME=erp_db
-      - DB_USER=erp_user
-      - DB_PASSWORD=your_secure_password
-    depends_on:
-      - db
 
-  # 3. React Frontend Service
+  # 2. React Frontend Service
   frontend:
     build: ./Front-end/myapp
     container_name: erp_react_frontend
@@ -42,6 +18,3 @@ services:
       - "80:80"
     depends_on:
       - backend
-
-volumes:
-  mysql_data:
